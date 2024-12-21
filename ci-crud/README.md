@@ -1,68 +1,125 @@
-# CodeIgniter 4 Application Starter
+# CodeIgniter 4 CRUD Application with Authentication
 
-## What is CodeIgniter?
+This project is a **CodeIgniter 4 web application** that features basic **CRUD operations** (Create, Read, Update, Delete) with **Login and Register authentication**. It uses a **MySQL database** for storing user and application data.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Project Features
+- User registration and login functionality.
+- CRUD operations for managing records.
+- Simple and intuitive user interface.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Requirements
+- **PHP** 7.4 or later
+- **Composer**
+- **MySQL**
+- **Apache** or **Nginx** web server
 
-## Installation & updates
+---
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+## Installation
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### 1. Clone the Repository
+Clone the repository from GitHub and navigate into the project directory:
+```bash
+git clone https://github.com/utsxvv/ci4-crud.git
+cd ci4-crud
+```
 
-## Setup
+### 2. Install Dependencies
+Install PHP dependencies using Composer:
+```bash
+composer install
+```
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 3. Set Up Environment Variables
+Rename the `env` file to `.env` and edit it to configure your environment variables:
+```bash
+mv env .env
+```
 
-## Important Change with index.php
+Open the `.env` file and update the database settings:
+```dotenv
+database.default.hostname = localhost
+database.default.database = your_database_name
+database.default.username = your_database_user
+database.default.password = your_database_password
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+### 4. Create the Database
+Create a new database in your MySQL server:
+```sql
+CREATE DATABASE your_database_name;
+```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+### 5 . Start the Development Server
+Run the built-in development server:
+```bash
+php spark serve
+```
+Visit the application in your web browser at [http://localhost:8080](http://localhost:8080).
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## Usage
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+### Access the Application
+- Navigate to [http://localhost:8080](http://localhost:8080).
+- Use the registration form to create an account or log in with an existing user.
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+### CRUD Operations
+- Once logged in, you can access the CRUD interface to create, view, update, and delete records.
 
-## Server Requirements
+---
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+## Database Schema
+Below is a schema for user authentication and records:
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+#### Users Table
+```sql
+CREATE TABLE auth (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    semester VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL
+);
+```
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+#### Sample CRUD Table
+```sql
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    semester VARCHAR(255) NOT NULL,
+    gender VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL
+);
+```
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+---
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+## Troubleshooting
+
+### Common Issues
+- **Database connection error**: Ensure your database credentials in `.env` are correct and the database server is running.
+- **Composer errors**: Ensure Composer is installed and dependencies are updated with `composer install`.
+
+---
+
+## Contact
+For questions or support, contact:
+- **Gmail**: [utssavvpatel@gmail.com](mailto:utssavvpatel@gmail.com)
+- **LinkedIn**: [Utsav Patel](www.linkedin.com/in/utsxvv)
+- **GitHub**: [@utsxvv](https://github.com/utsxvv)
+
