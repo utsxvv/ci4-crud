@@ -120,6 +120,6 @@ CREATE TABLE student (
 ## Contact
 For questions or support, contact:
 - **Gmail**: [utssavvpatel@gmail.com](mailto:utssavvpatel@gmail.com)
-- **LinkedIn**: [Utsav Patel](www.linkedin.com/in/utsxvv)
+- **LinkedIn**: [Utsav Patel](https://www.linkedin.com/in/utsxvv)
 - **GitHub**: [@utsxvv](https://github.com/utsxvv)
 
